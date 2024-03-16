@@ -1,4 +1,4 @@
-const connection = require('./Connection');
+const connection = require('../Connection');
  
 class UsersModel {
 

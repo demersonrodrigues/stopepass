@@ -1,6 +1,6 @@
 // router.js
 // const fastifyPlugin = require('fastify-plugin');
-const connection = require('../models/Connection');
+const connection = require('../Connection');
 const User = require('../class/user');
 const UsersModel = require('../models/UsersModel');
 
