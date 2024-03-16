@@ -26,3 +26,7 @@ create table vehicles (
     color varchar(20) not null,
     model varchar(20) not null
 );
+
+alter table vehicles
+add column  user_id int,
+add foreign key (user_id) references users(id);
