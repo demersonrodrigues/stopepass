@@ -1,0 +1,24 @@
+static async userCreate(user, vehicle) {
+        const connect = await connection.getConnect();
+
+        try {
+            await connect.beginTransaction();
+
+            const [user_vehicle] = (await connection).query(`
+            INSERT INTO users (name, date_born, cpf, email, tel, user_type)
+            VALUES (?, ?, ?, ?, ?, ?)
+            `, [user.name, user.date_born, user.cpf, user.email, user.tel, user.user_type]);
+
+            (await connection).query(`
+            INSERT INTO vehicles (plate, category, year_vehicle, color, model, user_id)
+            VALUES (?, ?, ?, ?, ?, ?)
+            `, [vehicle.plate, vehicle.category, vehicle.year_vehicle, vehicle.color, vehicle.model, userResult.insertId]);
+
+            (await connection).commit();
+        } catch (error) {
+            (await connection).rollback();
+            throw error;
+        } finally {
+            connect.release();
+        }
+    }
