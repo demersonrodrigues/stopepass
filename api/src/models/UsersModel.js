@@ -1,4 +1,4 @@
-const connection = require('../Connection');
+const connection = require('./Connection');
  
 class UsersModel {
 
@@ -41,36 +41,48 @@ class UsersModel {
         return {id: result.insertId};
     }
 
+    // static async updateUser (id, user) {
+    //     const { name, date_born, cpf, email, tel, user_type } = user;
+    //     (await connection).query(`SELECT * FROM users WHERE id = ?`);
+
+
+    // }
+
     static async updateUser (id, user) {
 
         const { email, tel, user_type } = user;
+        // const updating = (await connection).query(`SELECT * FROM users WHERE id = ?`);
 
-        if (await this.updateUserExists('email', email, id)) {
+        console.log('Robertino 1');
+        if (await this.userExists('email', email)) {
             throw new Error('Já existe um usuário com este Email. Insira outro Email');
         }
         
-        if (await this.updateUserExists('tel', tel, id)) {
+        if (await this.userExists('tel', tel)) {
             throw new Error('Já existe um usuário com este Número de telefone. Insira outro número');
         }
-
-        await connection.query(`UPDATE users SET name = ?, date_born = ?, cpf = ?, email = ?, telephone = ?, user_type = ? WHERE id = ?`, [name, date_born, cpf, email, tel, user_type, id]);
+        console.log('Robertino 2', email, tel, user_type, id);
+        (await connection).query(`UPDATE users SET email = ?, tel = ?, user_type = ? WHERE id = ?`, [email, tel, user_type, id]);
     }
 
     static async deleteUser(id) {
         try 
         {
-            // Verifique se o usuário existe antes de tentar deletar
-            const user = await connection.query('SELECT * FROM users WHERE id = ?', [id]);
+            const user = (await connection).query('SELECT * FROM users WHERE id = ?', [id]);
             if (user.length === 0) {
                 throw new Error('Usuário não encontrado');
             }
-        
-            // Se o usuário existir, prossiga com a deleção
-            await connection.query('DELETE FROM users WHERE id = ?', [id]);
+            const vehicle = ('SELECT * FROM vehicles WHERE user_id = ?', [id]);
+            if (vehicle.length > 0) {
+                (await connection).query('DELETE FROM vehicles WHERE user_id = ?', [id]);
+            }
+
+            (await connection).query('DELETE FROM users WHERE id = ?', [id]);
         } 
         catch (error) 
         {
             console.error(error);
+            console.log('ENTROU NO CATCH PÓS ERROR');
             throw new Error('Não foi possível deletar o usuário');
         }
     }

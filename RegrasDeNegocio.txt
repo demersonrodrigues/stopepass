@@ -1,0 +1,10 @@
+- O projeto deve ser elaborado com o Frontend em Angular, estilazação Bootstrap e Backend NodeJs (pode usar qualquer framework).
+- Estou utilizando Fastify de framework do NodeJs.
+- 
+
+REGRAS DE NEGÓCIO
+
+- Se o usuário for apagado, apaga todos os veículos associados a ele; [OK]
+- Todo usuário deve ter pelo menos um veículo associado a ele e no máximo dois;
+- A consulta deve ser realizada pela placa do veículo;
+

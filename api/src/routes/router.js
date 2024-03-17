@@ -1,6 +1,6 @@
 // router.js
 // const fastifyPlugin = require('fastify-plugin');
-const connection = require('../Connection');
+const connection = require('../models/Connection');
 const User = require('../class/user');
 const UsersModel = require('../models/UsersModel');
 
@@ -87,7 +87,7 @@ async function routes(fastify, options) {
         const id = request.params.id;
         const { name, date_born, cpf, email, tel, user_type } = request.body;
         let user = new User(name, date_born, cpf, email, tel, user_type);
-        const updateUser = UsersModel.updateUser(user, id);
+        const updateUser = UsersModel.updateUser(id, user);
         reply.send(updateUser);
         return updateUser;
       } catch (error) {
