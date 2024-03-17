@@ -19,7 +19,7 @@ class UsersModel {
 
     static async createUser(user) { 
         
-        const {name, date_born, cpf, email, tel, user_type} = user;
+        const {name, date_born, cpf, email, tel, user_type, vehicle} = user;
 
         if (await this.userExists('cpf', cpf)) {
             throw new Error('Já existe um usuário com este CPF. Insira outro CPF');
@@ -33,27 +33,23 @@ class UsersModel {
             throw new Error('Já existe um usuário com este Número de telefone. Insira outro número');
         }
 
-        const [result] = (await connection).query(`
+        const [result] = await(await connection).query(`
             INSERT INTO users (name, date_born, cpf, email, tel, user_type)
             VALUES (?, ?, ?, ?, ?, ?)
         `, [name, date_born, cpf, email, tel, user_type]);
 
+        (await connection).query(`
+            INSERT INTO vehicles (plate, category, year_vehicle, color, model, user_id)
+            VALUES (?, ?, ?, ?, ?, ?)
+        `, [vehicle.plate, vehicle.category, vehicle.year_vehicle, vehicle.color, vehicle.model, result.insertId]);
+
         return {id: result.insertId};
     }
-
-    // static async updateUser (id, user) {
-    //     const { name, date_born, cpf, email, tel, user_type } = user;
-    //     (await connection).query(`SELECT * FROM users WHERE id = ?`);
-
-
-    // }
 
     static async updateUser (id, user) {
 
         const { email, tel, user_type } = user;
-        // const updating = (await connection).query(`SELECT * FROM users WHERE id = ?`);
 
-        console.log('Robertino 1');
         if (await this.userExists('email', email)) {
             throw new Error('Já existe um usuário com este Email. Insira outro Email');
         }
@@ -61,7 +57,7 @@ class UsersModel {
         if (await this.userExists('tel', tel)) {
             throw new Error('Já existe um usuário com este Número de telefone. Insira outro número');
         }
-        console.log('Robertino 2', email, tel, user_type, id);
+
         (await connection).query(`UPDATE users SET email = ?, tel = ?, user_type = ? WHERE id = ?`, [email, tel, user_type, id]);
     }
 
@@ -94,14 +90,6 @@ class UsersModel {
         `, [value]);
         return existingUser.length > 0;
       }
-
-    static async updateUserExists (field, value, deleteId) {
-        const existingUser = (await connection).query(`
-          SELECT * FROM users WHERE ${field} = ? AND id != ?
-        `, [value, deleteId]);
-        return existingUser.length > 0;
-    }
-
 }
 
 module.exports = UsersModel;
