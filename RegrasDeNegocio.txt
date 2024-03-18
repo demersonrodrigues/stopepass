@@ -8,3 +8,8 @@ REGRAS DE NEGÓCIO
 - Todo usuário deve ter pelo menos um veículo associado a ele e no máximo dois;
 - A consulta deve ser realizada pela placa do veículo;
 
+
+
+CREATE VEHICLE
+
+- Pegar a ID do usuario da propria pagina de edição/visualização;

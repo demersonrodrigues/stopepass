@@ -1,5 +1,5 @@
 const connection = require('../models/Connection');
-const User = require('../class/user');
+const User = require('../class/User');
 const UsersModel = require('../models/UsersModel');
 const Vehicle = require('../class/Vehicle');
 const VehiclesModel = require('../models/VehiclesModel');
@@ -106,7 +106,7 @@ async function routes(fastify, options) {
     handler: async (request, reply) => {
       try {
         const { plate, category, year_vehicle, color, model, user_id } = request.body;
-        let vehicle = new User( plate, category, year_vehicle, color, model, user_id);
+        let vehicle = new Vehicle( plate, category, year_vehicle, color, model, user_id);
         const newVehicle = await VehiclesModel.createVehicle(vehicle);
         reply.send(newVehicle);
         return newVehicle;
