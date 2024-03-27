@@ -1,0 +1,101 @@
+<div class="container-fluid">
+    <h3 class="mb-3">Cadastrar usuário</h3>
+    <h5>Informações do usuário</h5>
+    <form class="row g-3" >
+        <div class="col-md-6">
+            <label for="inputName" class="form-label">Nome completo:</label>
+            <input type="text" class="form-control" id="inputName">
+        </div>
+        <div class="col-md-3">
+            <label for="inputDate" class="form-label">Data de nascimento:</label>
+            <input type="date" class="form-control" id="inputDate">
+        </div>
+        <div class="col-md-3">
+            <label for="inputCpf" class="form-label">CPF:</label>
+            <input type="text" class="form-control" id="inputCpf">
+        </div>
+        <div class="col-md-6">
+            <label for="inputAddress" class="form-label">E-mail:</label>
+            <input type="email" class="form-control" id="inputAddress" placeholder="meuemail@example.com">
+        </div>
+        <div class="col-md-3">
+            <label for="inputTel" class="form-label">Telefone:</label>
+            <input type="tel" class="form-control" id="inputTel" placeholder="(71) 9 xxxx-xxxx">
+        </div>
+        <div class="col-md-3">
+            <label for="inputUserType" class="form-label">Tipo de usuário:</label>
+            <select id="inputUserType" class="form-select">
+                <option selected>Selecione...</option>
+                <option>ALUNO</option>
+                <option>PROFESSOR</option>
+                <option>SERVIDOR</option>
+                <option>VISITANTE</option>
+            </select>
+        </div>
+    </form>
+
+    <h5 class="mt-3">Informações do veículo</h5>
+    <form class="row g-3">
+        <div class="col-md-3">
+            <label for="inputPlate" class="form-label">Placa do veículo:</label>
+            <input type="text" class="form-control" id="inputPlate">
+        </div>
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Categoria:</label>
+            <select id="inputState" class="form-select">
+                <option selected>Selecione...</option>
+                <option>Carro</option>
+                <option>Moto</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="inputYear" class="form-label">Ano do veículo:</label>
+            <input type="text" class="form-control" id="inputYear">
+        </div>
+        <div class="col-md-4">
+            <label for="inputColor" class="form-label">Cor do veiculo:</label>
+            <input type="text" class="form-control" id="inputColor">
+        </div>
+        <div class="col-md-4">
+            <label for="inputModel" class="form-label">Modelo do veículo:</label>
+            <input type="text" class="form-control" id="inputModel">
+        </div>
+    </form>
+
+    <h5 class="mt-3">Informações do Veículo Secundário</h5>
+    <form class="row g-3">
+        <div class="col-md-3">
+            <label for="inputPlate2" class="form-label">Placa do veículo:</label>
+            <input type="text" class="form-control" id="inputPlate2">
+        </div>
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Categoria:</label>
+            <select id="inputState" class="form-select">
+                <option selected>Selecione...</option>
+                <option>Carro</option>
+                <option>Moto</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="inputYear2" class="form-label">Ano do veículo:</label>
+            <input type="text" class="form-control" id="inputYear2">
+        </div>
+        <div class="col-md-4">
+            <label for="inputColor2" class="form-label">Cor do veiculo:</label>
+            <input type="text" class="form-control" id="inputColor2">
+        </div>
+        <div class="col-md-4">
+            <label for="inputModel2" class="form-label">Modelo do veículo:</label>
+            <input type="text" class="form-control" id="inputModel2">
+        </div>
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="bottom: 20px; right: 20px;">
+            <button class="btn me-md-2" type="button"
+                style="background-color: #ff7f7f; color: black; border-radius: 12px;" onclick="">Cancelar</button>
+            <button class="btn" type="button"
+                style="background-color: #7fff7f; color: black; border-radius: 12px;">Confirmar</button>
+        </div>
+    </form>
+
+
+</div>

@@ -5,18 +5,7 @@
   "projects": {
     "stopepass": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -31,13 +20,12 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -91,14 +79,15 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
-            ],
+                "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "node_modules/font-awesome/css/font-awesome.css",
+                "src/styles.css"
+              ],
             "scripts": []
           }
         }
@@ -106,6 +95,6 @@
     }
   },
   "cli": {
-    "analytics": "5c775167-0daa-4cc3-bcdc-99bd2af5d736"
+    "analytics": "64ebb4d1-0c73-4a47-b283-276e8d966f4a"
   }
 }

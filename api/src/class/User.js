@@ -1,4 +1,5 @@
 const Vehicle = require('../class/Vehicle');
+const UserTypes = require('../class/UserTypes')
 
 class User { 
     constructor(name, date_born, cpf, email, tel, user_type, vehicle) {

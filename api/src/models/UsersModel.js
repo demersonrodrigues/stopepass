@@ -4,7 +4,9 @@ class UsersModel {
 
     static async getUsers() {
         const [data] = (await connection).query(
-            `SELECT * FROM users`);
+            `SELECT users.name, users.cpf, users.tel, users_type.name_type 
+            FROM users 
+            INNER JOIN users_type ON users.user_type = users_type.id`);
         return data; 
     }
 
