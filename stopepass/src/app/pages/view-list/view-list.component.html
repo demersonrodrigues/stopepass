@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <h3 class="mb-3">Visualizar usuários</h3>
+  <table class="table">
+    <thead>
+      <tr class="bg-secondary text-dark">
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Tipo de usuário</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Visualizar</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Excluir</th>
+    </tr>    
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listUsers; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ user.name }}</td>
+          <td>{{ user.cpf }}</td>
+          <td>{{ user.user_type }}</td>
+          <td>{{ user.tel }}</td>
+          <td><img src="../../../assets/icons/eye-solid.svg" width="30" style="padding-left: 15px;"></td>
+          <td><img src="../../../assets/icons/pen-to-square-solid.svg" width="30" style="padding-left: 15px;" ></td>
+          <td><img src="../../../assets/icons/trash-solid.svg" width="30" style="padding-left: 15px;" ></td>
+        </tr>
+    </tbody>
+  </table>
+</div>

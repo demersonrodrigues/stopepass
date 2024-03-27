@@ -1,0 +1,39 @@
+/*Background da tela de consulta*/
+.bg {
+    background-image: url('../../../assets/images/bg_S&P.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+/*Div centralizada da tela de consulta*/
+.centered-div {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    justify-content: space-between;
+}
+
+.centered-div h2,
+.centered-div input,
+.centered-div button {
+    display: block;
+    margin: 20px 0px;
+}
+
+.centered-div input,
+.centered-div button {
+    width: 100%;
+    padding: 10px;
+}

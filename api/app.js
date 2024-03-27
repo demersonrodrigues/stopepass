@@ -1,5 +1,5 @@
 const fastify = require('fastify')({ logger:true });
-const routes = require('./router');
+const routes = require('./src/routes/router');
 
 fastify.register(routes);
 
